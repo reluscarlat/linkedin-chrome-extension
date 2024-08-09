@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LinkedIn Profile Scraper</title>
+    <style>
+        html {
+            width: 400px;
+            height: 500px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .centered-button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+            margin-bottom: 5%;
+        }
+        .full-width-button {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            width: 48%;
+            padding: 10px;
+            font-size: 14px;
+        }
+        input {
+            width: 96%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        #notification {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50; /* Default green */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            z-index: 1000;
+            width: 80%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scrape and Save Buttons -->
+    <div class="button-container">
+        <button id="scrapeData">Scrape</button>
+        <button id="saveData" disabled>Save</button>
+    </div>
+
+    <!-- Display Data Section -->
+    <div id="edit-section">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        
+        <label for="jobTitle">Job Title:</label>
+        <input type="text" id="jobTitle" name="jobTitle">
+        
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+        
+        <label for="employer">Current Employer:</label>
+        <input type="text" id="employer" name="employer">
+        
+        <label for="education">Education Institution:</label>
+        <input type="text" id="education" name="education">
+        
+        <label for="profileUrl">LinkedIn Profile URL:</label>
+        <input type="text" id="profileUrl" name="profileUrl" readonly>
+    </div>
+
+    <!-- Centered Download CSV Button and Counter -->
+    <div class="centered-button-container">
+        <button id="downloadCSV" class="full-width-button">Download CSV</button>
+        <div id="profileCounter" class="box" style="margin-top: 10px;">Profiles Stored: 0</div>
+        <div id="notification"></div> <!-- Popup notification -->
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
